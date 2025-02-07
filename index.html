@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Будеш моєю валентинкою?</title>
     <style>
         body {
@@ -15,23 +15,31 @@
             justify-content: center;
             height: 100vh;
             background-color: #ffb6c1;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         h1 {
             color: #d63384;
+            font-size: 6vw;
         }
 
         .buttons {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         button {
-            font-size: 24px;
+            font-size: 5vw;
             padding: 15px 30px;
-            margin: 10px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            width: 80%;
+            max-width: 300px;
         }
 
         .yes {
@@ -50,7 +58,7 @@
 
         #thinkAgain {
             color: #d63384;
-            font-size: 20px;
+            font-size: 4vw;
             margin-top: 20px;
         }
     </style>
@@ -73,7 +81,7 @@
 
         function shrinkNoButton() {
             let currentSize = parseFloat(window.getComputedStyle(noButton).fontSize);
-            if (currentSize > 5) {
+            if (currentSize > 10) {
                 noButton.style.fontSize = (currentSize * 0.7) + "px";
                 noButton.style.padding = "5px 10px";
             } else {
