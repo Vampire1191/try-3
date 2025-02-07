@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Будеш моєю валентинкою?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffb6c1;
+        }
+
+        h1 {
+            color: #d63384;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 24px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .no {
+            background-color: #4d4dff;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #thinkAgain {
+            color: #d63384;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Будеш ти моєю валентинкою? 💖</h1>
+    <div class="buttons">
+        <button class="yes" onclick="acceptLove()">Так</button>
+        <button class="no" onclick="shrinkNoButton()">Ні</button>
+    </div>
+    <h2 id="loveMessage" class="hidden">Я дуже радий, що ти моя дівчина! 💕<br>Я дуже сильно тебе люблю! ❤️</h2>
+    <h2 id="thinkAgain" class="hidden">Ти впевнена? Подумай ще. 🤔</h2>
+
+    <script>
+        let noButton = document.querySelector(".no");
+        let yesButton = document.querySelector(".yes");
+        let loveMessage = document.getElementById("loveMessage");
+        let thinkAgainMessage = document.getElementById("thinkAgain");
+
+        function shrinkNoButton() {
+            let currentSize = parseFloat(window.getComputedStyle(noButton).fontSize);
+            if (currentSize > 5) {
+                noButton.style.fontSize = (currentSize * 0.7) + "px";
+                noButton.style.padding = "5px 10px";
+            } else {
+                noButton.style.display = "none";
+            }
+            yesButton.style.fontSize = (parseFloat(window.getComputedStyle(yesButton).fontSize) * 1.2) + "px";
+            thinkAgainMessage.classList.remove("hidden");
+        }
+
+        function acceptLove() {
+            document.querySelector(".buttons").style.display = "none";
+            loveMessage.classList.remove("hidden");
+            thinkAgainMessage.classList.add("hidden");
+        }
+    </script>
+</body>
+
+</html>
